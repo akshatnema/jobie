@@ -62,13 +62,20 @@ const streamTweets = () => {
                 if (json.includes.users.length === 1) {
                   const db = client.db("Jobie");
                   const col = db.collection("tweets");
+
                   const dataFormatted = json.data.text;
                   const dateCreated = json.data.created_at;
+                  const tweetID = json.data.id;
+                  const tweetedBy = json.includes.users[0].username;
+
                   const toAdd = {
                     text: dataFormatted,
+                    creatorUsername: tweetedBy,
+                    tweetId: tweetID,
                     date: dateCreated,
                     mail: false,
                   };
+
                   await col.insertOne(toAdd);
                   console.log("tweet added");
                   client.close();
