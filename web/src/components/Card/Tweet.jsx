@@ -15,10 +15,10 @@ const Tweet = ({tweetData})=>{
     const [tweetLink,setTweetLink] = useState("#");
     
     useEffect(() => {
-        let tempText = tweetData.data.text;
+        let tempText = tweetData.text;
         setLink(URLReplacer(tempText));
         setText(tempText.replace(URLReplacer(tempText),""));
-        setTweetLink(`https://twitter/${tweetData.includes.users[0].username}/status/${tweetData.data.id}`);
+        setTweetLink(`https://twitter/${tweetData.creatorUsername}/status/${tweetData.tweetId}`);
     }, [tweetData]);
     
 
