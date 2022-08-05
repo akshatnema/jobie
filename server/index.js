@@ -10,7 +10,6 @@ dotenv.config();
 
 const app = express();
 let port = process.env.PORT || 8000;
-const uri = process.env.ATLAS_URI;
 const BEARER_TOKEN = process.env.TWITTER_BEARER_TOKEN;
 
 app.use(cors())
@@ -109,8 +108,6 @@ server.listen(port, async () => {
   }).catch((err) => {
     console.log(err)
   });
-  console.log(mongoose.model('tweets'))
-  console.log(Tweet === mongoose.model('tweets'))
   try {
     streamTweets();
   } catch (e) {
