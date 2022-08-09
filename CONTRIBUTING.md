@@ -68,3 +68,12 @@ To keep your development environment organized, create local branches to hold yo
    $ npm run test
 ```
 <p>Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.</p>
+
+<h3>Push</h3>
+<p>Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.</p>
+
+```console
+   $ git push origin my-branch
+```
+
+:tada:Enjoy!! Your work is done. Go and upload your amazing PR now..:+1:
