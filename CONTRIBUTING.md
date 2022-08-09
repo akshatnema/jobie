@@ -38,5 +38,33 @@ The following is a set of guidelines to help you begin your contribution to the 
     $ npm install
 ```
 Note: Configuration of .env file need to be done further, this section will be updated soon.
- 
+<h3>Step 3:Branch</h3>
+To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the main branch.
 
+```console
+   $ git checkout -b my-branch -t upstream/main
+```
+
+<h3>Step 4:Commit</h3>
+<p>It is recommended to keep your changes grouped logically within individual commits. Commits are a great way to help your fellow contributors keep check of the changes you made to the project.</p>
+
+```console
+   $ git add my/changed/file
+   $ git commit -m "changes-made"
+```
+<h3>Step 5:Rebase</h3>
+<p>Once you have committed your changes, it is a good idea to use git rebase (not git merge) to synchronize your work with the main repository.</p>
+
+```console
+   $ git fetch upstream
+   $ git rebase upstream/main
+```
+<p>This ensures that your working branch has the latest changes from main.</p>
+<h2>Testing</h2>
+<p>Bug fixes and features should always come with tests.</p>
+<p>Before submitting your changes in a pull request, always run the full test suite. To run the tests:</p>
+
+```console
+   $ npm run test
+```
+<p>Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.</p>
