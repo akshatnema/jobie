@@ -18,6 +18,25 @@ The following is a set of guidelines to help you begin your contribution to the 
     $ git fetch upstream
 ```
 <h3>Step 2:Build</h3>
- 
+<p>Now we are ready to build the project , but first of all we need to install NodeJS in our local system.<p>
+    
+```console
+    $ sudo apt install nodejs
+```
+ (for Debian Based system only)
+ <p>Inside the JobiE folder run the following commands to install all the dependencies.<p>
+     
+```console
+    $ cd server
+    $ npm install
+``` 
+(To install all the server side dependencies)
+<p>Similarly for the web side use the following commands in the JobiE folder<p>
+     
+```console
+    $ cd web
+    $ npm install
+```
+Note: Configuration of .env file need to be done further, this section will be updated soon.
  
 
