@@ -25,4 +25,4 @@ The JobIE project targets to notify about the latest opportunities and jobs in t
 ![NPM](https://img.shields.io/badge/-NPM-brightgreen?color=DC2C34&style=for-the-badge&logo=NPM&logoColor=white&logoWidth=20)
 
 ## Want to Contribute in this project? 🚀
-Refer to <a href="jobie/CONTRIBUTING.md">Click Here</a>
+Refer to <a href="CONTRIBUTING.md">Click Here</a>
