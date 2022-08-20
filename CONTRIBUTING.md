@@ -1,4 +1,4 @@
-<h1>Contributing to JobiE</h1>
+<h1>Contributing to JobIE</h1>
 <p>:wave: Hope you enjoy contributing to jobie :+1:</p>
 The following is a set of guidelines to help you begin your contribution to the JobiE. If you want to propose any change to this document feel free to propose changes to this document in a pull request.
 
