@@ -14,10 +14,9 @@
 
 <p align="center"> 
 The JobIE project targets to notify about the latest opportunities and jobs in tech and help job seekers and bachelors to remain up to date. It will have an in-built feature to provide instant notifications to the users whenever there is a job posting from a renowned company.
-</p
+</p>
 
 ## Technologies Used
-
 
 ![HTML5](https://img.shields.io/badge/-HTML5-white?color=ff6529&style=for-the-badge&logo=HTML5&logoColor=white&logoWidth=20)
 ![CSS3](https://img.shields.io/badge/-CSS3-orange?color=264DE4&style=for-the-badge&logo=CSS3&logoColor=white&logoWidth=20)
