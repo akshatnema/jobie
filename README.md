@@ -1,4 +1,4 @@
-![image](server/assets/jobie.gif)
+![image](web/assets/jobie.gif)
 
 <h1 align="center"> JobIE </h1>
 
