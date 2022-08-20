@@ -23,3 +23,6 @@ The JobIE project targets to notify about the latest opportunities and jobs in t
 ![Javascript](https://img.shields.io/badge/-javascript-white?style=for-the-badge&logo=javascript&logoColor=white&logoWidth=20&color=F1DB4E)
 ![NodeJS](https://img.shields.io/badge/-Node-orange?color=8BBF3F&style=for-the-badge&logo=NODE&logoColor=white&logoWidth=20)
 ![NPM](https://img.shields.io/badge/-NPM-brightgreen?color=DC2C34&style=for-the-badge&logo=NPM&logoColor=white&logoWidth=20)
+
+## Want to Contribute in this project? 🚀
+Refer to <a href="jobie/CONTRIBUTING.md">Click Here</a>
