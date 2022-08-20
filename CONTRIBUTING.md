@@ -38,7 +38,7 @@ To keep your development environment organized, create local branches to hold yo
     $ npm install
 ``` 
 (To install all the server side dependencies)
-<p>Similarly for the web side use the following commands in the JobiE folder<p>
+<p>Similarly for the front-end side, use the following commands in the JobiE folder<p>
      
 ```console
     $ cd web
