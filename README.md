@@ -12,7 +12,10 @@
 
 </p>
 
-<p align="center"> 
+<p align="left">
+Finding jobs is a tedious task today and to solve this problem JobiE is here for you. With the hiring season coming up for the 2023 year, every job seeker wants to apply for a number of opportunities to increase his/her chances of selection. Many of the opportunities last for a few hours only, hence many job seekers fail to get the information regarding them at right time. So, we come up with a new solution to target this problem and optimize the solution as much as possible
+<br>  
+<br>
 The JobIE project targets to notify about the latest opportunities and jobs in tech and help job seekers and bachelors to remain up to date. It will have an in-built feature to provide instant notifications to the users whenever there is a job posting from a renowned company.
 </p>
 
