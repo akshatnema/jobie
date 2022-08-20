@@ -21,8 +21,11 @@ The JobIE project targets to notify about the latest opportunities and jobs in t
 ![HTML5](https://img.shields.io/badge/-HTML5-white?color=ff6529&style=for-the-badge&logo=HTML5&logoColor=white&logoWidth=20)
 ![CSS3](https://img.shields.io/badge/-CSS3-orange?color=264DE4&style=for-the-badge&logo=CSS3&logoColor=white&logoWidth=20)
 ![Javascript](https://img.shields.io/badge/-javascript-white?style=for-the-badge&logo=javascript&logoColor=white&logoWidth=20&color=F1DB4E)
-![NodeJS](https://img.shields.io/badge/-Node-orange?color=8BBF3F&style=for-the-badge&logo=NODE&logoColor=white&logoWidth=20)
+![ReactJS](https://img.shields.io/badge/-React-orange?color=09D9FE&style=for-the-badge&logo=React&logoColor=white&logoWidth=20)
 ![NPM](https://img.shields.io/badge/-NPM-brightgreen?color=DC2C34&style=for-the-badge&logo=NPM&logoColor=white&logoWidth=20)
+![NodeJS](https://img.shields.io/badge/-Node-orange?color=8BBF3F&style=for-the-badge&logo=NODE&logoColor=white&logoWidth=20)
+![API](https://img.shields.io/badge/-API-orange?color=ff69b4&style=for-the-badge&logo=API&logoColor=white&logoWidth=20)
+![MongoDB](https://img.shields.io/badge/-MongoDB-orange?color=ncf&style=for-the-badge&logo=MongoDB&logoColor=white&logoWidth=20)
 
-## Want to Contribute in this project? 🚀
-<a href="CONTRIBUTING.md">Refer to our contributing guid</a>
+## Want to Contribute ? 🚀
+Check Out  <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>
