@@ -41,13 +41,21 @@ The following is a set of guidelines to help you begin your contribution to the 
 Now we need to create a .env file which will contain our development variables such as Atlas string(URI) and Twitter Bearer Token for the twitter API.
 
 ```console
+    $ cd server
     $ touch .env
     $ nano .env
 ```
-*You can use any text editor in place of nano.
-Now inside the .env file use your development variables as shown below.
-Twitter Bearer token can be generated from <a href="https://developer.twitter.com/en/docs/developer-portal">here.</a>
-For generation of Atlas URI to connect your database click <a href="https://account.mongodb.com/account/login?n=%2Fv2%2F62f7e246576e344fad111a1c&nextHash=%23clusters">here</a>.
+<p>Note:You can use any text editor in place of nano.</p>
+
+<p>Now inside the .env file use your development variables as shown below.</p>
+
+```console
+    ATLAS_URI="mongodb+srv://user_name:password@cluster0.bscef8f.mongodb.net/?retryWrites=true&w=majority"
+    TWITTER_API="AAAAAAAAAAAAAAAAAAAAANAUSgEAAAAA%2BwvPQqv%xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxdCH93sdrzv"
+```
+
+<p><b>Twitter Bearer Token</b>: Click <a href="https://developer.twitter.com/en/docs/developer-portal">here.</a></p>
+<p><b>ATLAS URI</b>: Click <a href="https://account.mongodb.com/account/login?n=%2Fv2%2F62f7e246576e344fad111a1c&nextHash=%23clusters">here</a>.</p>
 Note: Configuration of .env file need to be done further, this section will be updated soon.
 <h3>Step 3:Branch</h3>
 To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the main branch.
@@ -55,7 +63,14 @@ To keep your development environment organized, create local branches to hold yo
 ```console
    $ git checkout -b my-branch -t upstream/main
 ```
+<h3>Step 5:Start Developing</h3>
+<p>For all the users working on the frontend. You can make changes and load JobiE locally by running the following inside the web directory.</p>
 
+```console
+   $ npm start
+```
+<p>Similarly for the server side, use the same command inside the sever directory.</p>
+Your site will be hosted locally at: http://localhost:8000/
 <h3>Step 4:Commit</h3>
 <p>It is recommended to keep your changes grouped logically within individual commits. Commits are a great way to help your fellow contributors keep check of the changes you made to the project.</p>
 
