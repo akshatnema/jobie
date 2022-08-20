@@ -37,6 +37,17 @@ The following is a set of guidelines to help you begin your contribution to the 
     $ cd web
     $ npm install
 ```
+<h3>Step 4:Setting up development variables</h3>
+Now we need to create a .env file which will contain our development variables such as Atlas string(URI) and Twitter Bearer Token for the twitter API.
+
+```console
+    $ touch .env
+    $ nano .env
+```
+*You can use any text editor in place of nano.
+Now inside the .env file use your development variables as shown below.
+Twitter Bearer token can be generated from <a href="https://developer.twitter.com/en/docs/developer-portal">here.</a>
+For generation of Atlas URI to connect your database click <a href="https://account.mongodb.com/account/login?n=%2Fv2%2F62f7e246576e344fad111a1c&nextHash=%23clusters">here</a>.
 Note: Configuration of .env file need to be done further, this section will be updated soon.
 <h3>Step 3:Branch</h3>
 To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the main branch.
