@@ -11,9 +11,20 @@ The following is a set of guidelines to help you begin your contribution to the 
 <h2>Setting up your local environment</h2>
 <h3>Step 1:Fork</h3>
 <p>Fork the project on Github and clone your fork locally to your system.</p>
+<p><b>Using SSH:</b></p>
+    
+```console
+    $  git clone git@github.com:<your_username>/jobie.git
+```
+<i>OR</i>
+<p><b>Using HTTPS:</b></p>
 
 ```console
-    $ git@github.com:akshatnema/jobie.git (ssh key) or $ https://github.com/akshatnema/jobie.git (https)
+    $ git clone https://github.com/<your_username>/jobie.git
+```
+<p>Then navigate to JobIE</p>
+
+```console
     $ cd jobie  
 ```
 <h3>Step 2:Branch</h3>
@@ -25,12 +36,8 @@ To keep your development environment organized, create local branches to hold yo
    $ git fetch upstream
 ```
 <h3>Step 3:Build</h3>
-<p>Now we are ready to build the project , but first of all we need to install NodeJS in our local system.<p>
+<p>Now we are ready to build the project , but first of all make sure that you have <b>NodeJS</b> installed in your system.<p>
     
-```console
-    $ sudo apt install nodejs
-```
- (for Debian Based system only)
  <p>Inside the jobie folder run the following commands to install all the dependencies.<p>
      
 ```console
@@ -80,25 +87,9 @@ Your site will be hosted locally at: <b>http://localhost:8000/</b>
    $ git add my/changed/file
    $ git commit -m "changes-made"
 ```
-<h3>Step 7:Rebase</h3>
-<p>Once you have committed your changes, it is a good idea to use git rebase (not git merge) to synchronize your work with the main repository.</p>
 
-```console
-   $ git fetch upstream
-   $ git rebase upstream/main
-```
-<p>This ensures that your working branch has the latest changes from main.</p>
-<h2>Testing</h2>
-<p>Bug fixes and features should always come with tests.</p>
-<p>Before submitting your changes in a pull request, always run the full test suite. To run the tests:</p>
-
-```console
-   $ npm run test
-```
-<p>Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.</p>
-
-<h3>Push</h3>
-<p>Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.</p>
+<h2>Push</h2>
+<p>Once your commits are ready to go begin the process of opening a pull request by pushing your working branch to your fork on GitHub.</p>
 
 ```console
    $ git push origin my-branch
