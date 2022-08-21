@@ -78,7 +78,7 @@ Now we need to create a .env file which will contain our development variables s
    $ npm start
 ```
 <p>Similarly for the server side, use the same command inside the sever directory.</p>
-Your site will be hosted locally at: <b>http://localhost:8000/</b>
+Your site will be hosted locally at: <b>http://localhost:3000/</b>
 
 <h3>Step 6:Commit</h3>
 <p>It is recommended to keep your changes grouped logically within individual commits. Commits are a great way to help your fellow contributors keep check of the changes you made to the project.</p>
