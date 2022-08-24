@@ -31,4 +31,4 @@ The JobIE project targets to notify about the latest opportunities and jobs in t
 ![MongoDB](https://img.shields.io/badge/-MongoDB-orange?color=ncf&style=for-the-badge&logo=MongoDB&logoColor=white&logoWidth=20)
 
 ## Want to Contribute ? 🚀
-Check Out  <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>
+Check Out  [CONTRIBUTING.md](/CONTRIBUTING.md)
