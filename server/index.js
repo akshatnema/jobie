@@ -128,7 +128,7 @@ app.post("/mail", async function (req, res) {
   }
 });
 
-cron.schedule('*/10 * * * *', () => {
+cron.schedule('* * * * *', () => {
   let ping = pingUrl();
   while(!ping) {
     ping = pingUrl();
