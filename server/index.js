@@ -6,6 +6,8 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const Tweet = require("./models/schema");
 const User = require("./models/userSchema");
+const cron = require('node-cron');
+const {pingUrl} = require("./ping-url")
 
 dotenv.config();
 
@@ -72,12 +74,10 @@ const streamTweets = () => {
                     console.log(err);
                   });
               }
-            } else {
-              console.log(json);
-            }
+            } else {}
           }
         } catch (e) {
-          //console.log(e);
+          console.log(e);
         }
       })
       .on("error", (error) => {
@@ -128,6 +128,13 @@ app.post("/mail", async function (req, res) {
   }
 });
 
+cron.schedule('*/10 * * * *', () => {
+  let ping = pingUrl();
+  while(!ping) {
+    ping = pingUrl();
+  }
+});
+
 server.listen(port, async () => {
   console.log("Listening in port " + port);
   await mongoose
@@ -140,6 +147,7 @@ server.listen(port, async () => {
     });
   try {
     streamTweets();
+    
   } catch (e) {
     console.log(e);
   }
