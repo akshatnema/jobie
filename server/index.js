@@ -46,7 +46,8 @@ const streamTweets = () => {
     stream
       .on("data", (data) => {
         try {
-          const json = JSON.parse(data);
+          console.log(data)
+          const json = JSON.parse(data);     
           if (json.connection_issue) {
             reconnect(stream);
           } else {
@@ -128,12 +129,12 @@ app.post("/mail", async function (req, res) {
   }
 });
 
-cron.schedule('* * * * *', () => {
-  let ping = pingUrl();
-  while(!ping) {
-    ping = pingUrl();
-  }
-});
+// cron.schedule('* * * * *', () => {
+//   let ping = pingUrl();
+//   while(!ping) {
+//     ping = pingUrl();
+//   }
+// });
 
 server.listen(port, async () => {
   console.log("Listening in port " + port);
