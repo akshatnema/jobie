@@ -46,8 +46,8 @@ const streamTweets = () => {
     stream
       .on("data", (data) => {
         try {
-          console.log(JSON.parse(data))
-          const json = JSON.parse(data);     
+          const json = JSON.parse(data.toString());
+          console.log(json);     
           if (json.connection_issue) {
             reconnect(stream);
           } else {
