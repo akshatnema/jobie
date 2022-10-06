@@ -32,6 +32,7 @@ const sleep = async (delay) => {
 };
 
 const streamTweets = () => {
+  
   const config = {
     url: streamURL,
     auth: {
@@ -42,12 +43,10 @@ const streamTweets = () => {
 
   try {
     const stream = request.get(config);
-
     stream
       .on("data", (data) => {
         try {
-          const json = JSON.parse(data.toString());
-          console.log(json);     
+          const json = JSON.parse(data);     
           if (json.connection_issue) {
             reconnect(stream);
           } else {
@@ -65,6 +64,7 @@ const streamTweets = () => {
                   date: dateCreated,
                   mail: false,
                 };
+                console.log(toAdd);
                 const newTweet = new Tweet(toAdd);
                 newTweet
                   .save()
@@ -75,10 +75,12 @@ const streamTweets = () => {
                     console.log(err);
                   });
               }
-            } else {}
+            } else {
+              console.log(json)
+            }
           }
         } catch (e) {
-          console.log(e);
+          // console.log(e);
         }
       })
       .on("error", (error) => {
