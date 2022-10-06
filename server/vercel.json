@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "Jobie-backend",
+    "name": "jobie-backend",
     "builds": [
         {
             "src": "index.js",
