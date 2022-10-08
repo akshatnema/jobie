@@ -1,13 +1,10 @@
 const express = require("express");
+const needle = require('needle');
 const cors = require("cors");
-const request = require("request");
-const http = require("http");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const Tweet = require("./models/schema");
 const User = require("./models/userSchema");
-const cron = require('node-cron');
-const {pingUrl} = require("./ping-url")
 
 dotenv.config();
 
@@ -19,85 +16,74 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const server = http.createServer(app);
+const streamURL = 
+  'https://api.twitter.com/2/tweets/search/stream?tweet.fields=created_at&expansions=author_id&user.fields=created_at'
+;
 
-let timeout = 0;
-
-const streamURL = new URL(
-  "https://api.twitter.com/2/tweets/search/stream?tweet.fields=created_at&expansions=author_id&user.fields=created_at"
-);
-
-const sleep = async (delay) => {
-  return new Promise((resolve) => setTimeout(() => resolve(true), delay));
-};
-
-const streamTweets = () => {
+const streamTweets = async () => {
   
-  const config = {
-    url: streamURL,
-    auth: {
-      bearer: BEARER_TOKEN,
+  const stream = needle.get(streamURL, {
+    headers: {
+        "User-Agent": "v2FilterStreamJS",
+        "Authorization": `Bearer ${BEARER_TOKEN}`
     },
-    timeout: 31000,
-  };
+    timeout: 20000
+});
 
-  try {
-    const stream = request.get(config);
-    stream
-      .on("data", (data) => {
-        try {
-          const json = JSON.parse(data);     
-          if (json.connection_issue) {
-            reconnect(stream);
-          } else {
-            if (json.data) {
-              if (json.includes.users.length === 1) {
-                const dataFormatted = json.data.text;
-                const dateCreated = json.data.created_at;
-                const tweetID = json.data.id;
-                const tweetedBy = json.includes.users[0].username;
+stream.on('data', data => {
+    try {
+        const json = JSON.parse(data);
+        console.log(json);
+        if (json.includes.users.length === 1) {
+          const dataFormatted = json.data.text;
+          const dateCreated = json.data.created_at;
+          const tweetID = json.data.id;
+          const tweetedBy = json.includes.users[0].username;
 
-                const toAdd = {
-                  text: dataFormatted,
-                  creatorUsername: tweetedBy,
-                  tweetId: tweetID,
-                  date: dateCreated,
-                  mail: false,
-                };
-                console.log(toAdd);
-                const newTweet = new Tweet(toAdd);
-                newTweet
-                  .save()
-                  .then((res) => {
-                    console.log(res);
-                  })
-                  .catch((err) => {
-                    console.log(err);
-                  });
-              }
-            } else {
-              console.log(json)
-            }
-          }
-        } catch (e) {
-          // console.log(e);
+          const toAdd = {
+            text: dataFormatted,
+            creatorUsername: tweetedBy,
+            tweetId: tweetID,
+            date: dateCreated,
+            mail: false,
+          };
+          console.log(toAdd);
+          const newTweet = new Tweet(toAdd);
+          newTweet
+            .save()
+            .then((res) => {
+              console.log(res);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
         }
-      })
-      .on("error", (error) => {
-        console.log(error);
-        reconnect(stream);
-      });
-  } catch (e) {
-    console.log(e);
-  }
+        // A successful connection resets retry count.
+        retryAttempt = 0;
+    } catch (e) {
+        if (data.detail === "This stream is currently at the maximum allowed connection limit.") {
+            console.log(data.detail)
+            process.exit(1)
+        } else {
+            // Keep alive signal received. Do nothing.
+        }
+    }
+}).on('err', error => {
+    if (error.code !== 'ECONNRESET') {
+        console.log(error.code);
+        process.exit(1);
+    } else {
+        setTimeout(() => {
+            console.warn("A connection error occurred. Reconnecting...")
+            streamConnect(++retryAttempt);
+        }, 2 ** retryAttempt)
+    }
+});
+
+return stream;
+
 };
 
-async function reconnect(stream) {
-  timeout++;
-  stream.abort();
-  await sleep(2 ** timeout * 1000);
-  streamTweets();
-}
 
 app.get("/", async function (req, res) {
   const arrayOfEntries = await Tweet.find({});
@@ -131,14 +117,7 @@ app.post("/mail", async function (req, res) {
   }
 });
 
-// cron.schedule('* * * * *', () => {
-//   let ping = pingUrl();
-//   while(!ping) {
-//     ping = pingUrl();
-//   }
-// });
-
-server.listen(port, async () => {
+app.listen(port, async () => {
   console.log("Listening in port " + port);
   await mongoose
     .connect(process.env.ATLAS_URI)
@@ -149,7 +128,7 @@ server.listen(port, async () => {
       console.log(err);
     });
   try {
-    streamTweets();
+    await streamTweets();
     
   } catch (e) {
     console.log(e);
