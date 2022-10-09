@@ -1,10 +1,12 @@
 const express = require("express");
+const axios = require('axios');
 const needle = require('needle');
 const cors = require("cors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const Tweet = require("./models/schema");
 const User = require("./models/userSchema");
+const cron = require('node-cron');
 
 dotenv.config();
 
@@ -78,10 +80,16 @@ const streamTweets = async () => {
       }, 2 ** retryAttempt)
     }
   });
-
   return stream;
-
 };
+
+cron.schedule('*/10 * * * *', async () => {
+ await axios.get('https://jobie.onrender.com').then((response) => {
+    console.log(response.status, response.statusText);
+  }).catch((error) => {
+    console.log(error);
+  })
+});
 
 
 app.get("/", async function (req, res) {
