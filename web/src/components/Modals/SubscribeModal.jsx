@@ -65,9 +65,9 @@ const SubscribeModal = ({ open, close, resp, setResp }) => {
         className={`absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50
         }`}
       >
-        <div className="p-6 w-1/3 bg-white">
+        <div className="md:p-6 p-4 lg:w-2/5 md:w-1/2 sm:w-3/5 w-4/5 bg-white">
           <div className="flex items-center justify-between">
-            <h3 className="text-2xl text-center w-full">
+            <h3 className="md:text-2xl sm:text-xl text-md text-center w-full">
               SUBSCRIBE FOR UPDATES!
             </h3>
             <svg
