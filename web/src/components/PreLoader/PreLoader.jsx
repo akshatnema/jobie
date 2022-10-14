@@ -9,8 +9,8 @@ const override = {
 
 function PreLoader() {
   return (
-    <div className="h-screen">
-      <div class="grid h-2/3 place-items-center">
+    <div className="preload">
+      <div class="grid h-full place-items-center">
       <div class="w-1/3 p-2">
         <div class=" text-center p-2">
           <div className="sweet-loading h-50">

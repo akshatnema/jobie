@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.server-error{
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../assets/server_error.gif');
+    background-position: center;
+    background-size: center;
+    background-repeat: no-repeat;
+}
+
+.preload{
+    height: calc(100vh - 4rem)
+}
