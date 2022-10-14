@@ -93,11 +93,8 @@ cron.schedule('*/10 * * * *', async () => {
 
 
 app.get("/", async function (req, res) {
-  let arrayOfEntries = await Tweet.find({});
-  arrayOfEntries.sort(function (a, b) {
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
-  });
-  arrayOfEntries = arrayOfEntries.slice(0,40);
+  const arrayOfEntries = await Tweet.find({}).sort({ date: -1 }).limit(40);
+  console.log(arrayOfEntries)
   let response = {
     body: arrayOfEntries,
   };
