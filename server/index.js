@@ -93,7 +93,7 @@ cron.schedule('*/10 * * * *', async () => {
 
 
 app.get("/", async function (req, res) {
-  const arrayOfEntries = await Tweet.find({});
+  const arrayOfEntries = await Tweet.find({}).sort({ date: -1 }).limit(40);
   let response = {
     body: arrayOfEntries,
   };
@@ -126,7 +126,9 @@ app.post("/mail", async function (req, res) {
 
 app.listen(port, async () => {
   console.log("Listening in port " + port);
-  await mongoose
+  
+  try {
+    await mongoose
     .connect(process.env.ATLAS_URI)
     .then((res) => {
       console.log("Connected to MongoDB");
@@ -134,9 +136,7 @@ app.listen(port, async () => {
     .catch((err) => {
       console.log(err);
     });
-  try {
     await streamTweets();
-
   } catch (e) {
     console.log(e);
   }
