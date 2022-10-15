@@ -128,7 +128,6 @@ app.listen(port, async () => {
   console.log("Listening in port " + port);
   
   try {
-    await streamTweets();
     await mongoose
     .connect(process.env.ATLAS_URI)
     .then((res) => {
@@ -137,6 +136,7 @@ app.listen(port, async () => {
     .catch((err) => {
       console.log(err);
     });
+    await streamTweets();
   } catch (e) {
     console.log(e);
   }
